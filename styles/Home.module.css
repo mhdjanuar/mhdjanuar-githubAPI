@@ -118,6 +118,17 @@
   font-weight: 400;
 }
 
+.titleGit {
+  color: #096ada;
+}
+
+.circle {
+  width: 10px; 
+  height: 10px; 
+  border-radius: 5px;
+  margin-right: 10px
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

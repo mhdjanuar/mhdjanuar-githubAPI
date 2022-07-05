@@ -36,7 +36,7 @@ export const reposSlice = createSlice({
 export const { reposLoading, reposReceived } = reposSlice.actions
 
 // Define a thunk that dispatches those action creators
-export const fetchUsers = () => async (dispatch) => {
+export const fetchRepos = () => async (dispatch) => {
     dispatch(reposLoading())
     const response = await fetch('https://api.github.com/users/mhdjanuar/repos?sort=created&direction=desc');
     const dataUsers = await response.json()
