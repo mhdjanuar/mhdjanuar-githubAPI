@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       {repos.map(item => (
-        <Card>
+        <Card key={item.id}>
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
             <h3 className={styles.titleGit}>{item.name}</h3>
             <p className={styles.buttonPublic}>{item.private ? 'Private' : 'Public'}</p>
