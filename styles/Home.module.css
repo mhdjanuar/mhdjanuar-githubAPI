@@ -108,6 +108,16 @@
   margin-left: 0.5rem;
 }
 
+.buttonPublic {
+  background-color: #0070f3;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  color: #eaeaea;
+  font-weight: 400;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userSlices from './slices/usersSlices';
+import reposSlice from './slices/repoSlices';
 
 /**
  * Creates a store and includes all the slices as reducers.
  */
 export const store = configureStore({
     reducer: {
-      user: userSlices,
+      repos: reposSlice,
     },
   });
 

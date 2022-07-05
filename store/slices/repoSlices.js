@@ -9,23 +9,23 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     loading: 'idle',
-    users: [],
+    repos: [],
 }
 
-export const userSlice = createSlice({
-    name: 'user',
+export const reposSlice = createSlice({
+    name: 'repos',
     initialState,
     reducers: {
-        usersLoading(state, action) {
+        reposLoading(state, action) {
             // Use a "state machine" approach for loading state instead of booleans
             if (state.loading === 'idle') {
                 state.loading = 'pending'
             }
         },
-        usersReceived(state, action) {
+        reposReceived(state, action) {
             if (state.loading === 'pending') {
                 state.loading = 'idle'
-                state.users = action.payload
+                state.repos = action.payload
             }
         },
     },
@@ -33,14 +33,14 @@ export const userSlice = createSlice({
 
 
 // Exports all actions
-export const { usersLoading, usersReceived } = userSlice.actions
+export const { reposLoading, reposReceived } = reposSlice.actions
 
 // Define a thunk that dispatches those action creators
 export const fetchUsers = () => async (dispatch) => {
-    dispatch(usersLoading())
-    const response = await fetch('https://api.github.com/users/mhdjanuar/repos');
+    dispatch(reposLoading())
+    const response = await fetch('https://api.github.com/users/mhdjanuar/repos?sort=created&direction=desc');
     const dataUsers = await response.json()
-    dispatch(usersReceived(dataUsers))
+    dispatch(reposReceived(dataUsers))
 }
 
-export default userSlice.reducer;
+export default reposSlice.reducer;
