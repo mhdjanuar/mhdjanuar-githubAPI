@@ -39,8 +39,8 @@ export const { reposLoading, reposReceived } = reposSlice.actions
 export const fetchRepos = () => async (dispatch) => {
     dispatch(reposLoading())
     const response = await fetch('https://api.github.com/users/mhdjanuar/repos?sort=created&direction=desc');
-    const dataUsers = await response.json()
-    dispatch(reposReceived(dataUsers))
+    const dataRepos = await response.json()
+    dispatch(reposReceived(dataRepos))
 }
 
 export default reposSlice.reducer;
